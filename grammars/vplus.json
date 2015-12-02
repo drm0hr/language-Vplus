@@ -37,20 +37,20 @@
 		"end": "(\\))\\s*(?:(\\:)|(.*$\\n?))"
 	},
 	{
-      "begin": "\"",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.string.begin.vplus"
-        }
-      },
-      "end": "\"",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.definition.string.end.vplus"
-        }
-      },
-      "name": "string.quoted.double.vplus"
-    }
+		"begin": "\"",
+		"beginCaptures": {
+			"0": {
+				"name": "punctuation.definition.string.begin.vplus"
+			}
+		},
+		"end": "\"",
+		"endCaptures": {
+			"0": {
+				"name": "punctuation.definition.string.end.vplus"
+			}
+		},
+		"name": "string.quoted.double.vplus"
+	}
 ],
 "repository": {
 	"control-words": {
