@@ -1,0 +1,149 @@
+{
+"scopeName": "source.Vplus",
+"name": "Adept V+",
+"fileTypes": ["v2"],
+"patterns":
+[
+	{
+		"include": "#control-words"
+	},
+	{
+		"include": "#operators"
+    },
+	{
+		"include": "#constants"
+    },
+    {
+		"include": "#language-support"
+    },
+	{
+		"include": "#variable-modifiers"
+	},
+	{
+		"begin": ";",
+		"end": "\\n",
+		"name": "comment.line.vplus"
+	},
+	{
+		"begin": "\\s*(\\.PROGRAM)\\s+([A-Za-z_\\.][A-Za-z0-9_\\.]*)(\\s*\\()",
+		"beginCaptures": {
+			"1": {
+				"name": "keyword.control.vplus"
+			},
+			"2": {
+				"name": "entity.name.function"
+			}
+		},
+		"end": "(\\))\\s*(?:(\\:)|(.*$\\n?))"
+	},
+	{
+      "begin": "\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.vplus"
+        }
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.vplus"
+        }
+      },
+      "name": "string.quoted.double.vplus"
+    }
+],
+"repository": {
+	"control-words": {
+		"patterns": [
+		{
+			"match": "\\b(if|IF|then|THEN|else|ELSE|end|END)\\b",
+			"name": "keyword.control.vplus"
+		},
+		{
+			"match": "\\b(while|WHILE|do|DO|next|NEXT|end|END)\\b",
+			"name": "keyword.control.vplus"
+		},
+		{
+			"match": "\\b(for|FOR|to|TO|next|NEXT|end|END)\\b",
+			"name": "keyword.control.vplus"
+		},
+		{
+			"match": "\\b(case|CASE|of|OF|value|VALUE|any|ANY|end|END)\\b",
+			"name": "keyword.control.vplus"
+		},
+		{
+			"match": "\\b(goto|GOTO)\\b",
+			"name": "keyword.control.vplus"
+        },
+        {
+			"match": "\\b(do|DO|until|UNTIL)\\b",
+			"name": "keyword.control.vplus"
+        }
+      ]
+	},
+	"operators": {
+		"patterns": [
+		{
+			"match": "=",
+			"name": "keyword.operator.assignment.vplus"
+		},
+		{
+			"match": "[*/+-]|\\b(mod|MOD|abs|ABS)\\b",
+			"name": "keyword.operator.arithmetic.vplus"
+		},
+		{
+			"match": "(==|<=|>=|<>|<|>)",
+			"name": "keyword.operator.comparison.vplus"
+		},
+		{
+			"match": "\\b([aA][nN][dD]|[bB][aA][nN][dD]|[nN][oO][tT]|[oO][rR]|[xX][oO][rR]|[bB][xX][oO][rR])\\b",
+			"name": "keyword.operator.logical.vplus"
+		},
+		{
+			"match": "\\b([bB][yY])\\b",
+			"name": "keyword.operator.vplus"
+		}
+		]
+	},
+	"constants": {
+		"patterns": [
+		{
+			"match": "\\b(([0-9]+\\.?[0-9]*)|([0-9]+\\.?[0-9]*)((e|E)(\\+|-)?[0-9]+)?)\\b",
+			"name": "constant.numeric.vplus"
+		},
+		{
+			"match": "\\b([tT][rR][uU][eE]|[fF][aA][lL][sS][eE]|[oO][nN]|[oO][fF][fF])\\b",
+			"name": "constant.language.vplus"
+		}
+		]
+    },
+	"variable-modifiers": {
+		"patterns": [
+		{
+			"match": "\\b(auto|AUTO|global|GLOBAL|local|LOCAL)\\b",
+			"name": "storage.modifier.vplus"
+		}
+		]
+	},
+	"language-support": {
+		"patterns": [
+		{
+			"match": "\\b(ABORT|ABOVE|ALIGN|ALTOFF|AUTO(.POWER(.OFF))|BELT(.MODE)|BELT|BELOW|BRAKE|BREAK|BSTATUS|CALIBRATE|CPOFF|CPON|DEFAULT|DEST|DRY.(RUN)|ESTOP|FLIP|HALT|HAND(.TIME)|HAND|HERE|HOUR.(METER)|INTERACTIVE|LEFTY|MCP.(MESSAGE)|MCS.(MESSAGE)|MESSAGES|MONITORS|MULTIPLE|NOFLIP|NONULL|NOOVERLAP|NOT.(CALIBRATED)|NULL|OPEN|OPENI|OVERLAP|PAUSE|#PDEST|POWER|PRIORITY|READY|RELAX|RELAXI|RESET|RETURN|RETURNE|RIGHTY|#SETPOINT|SET.(SPEED)|SINGLE|STOP|TERMINAL|TPS|TRACE|UPPER)\\b",
+			"name": "support.function.vplus"
+		},
+		{
+			"match": "\\b(ACCEL|AIO.(IN|INS|OUT)|ALTER|ALTON|APPRO|APPROS|ATTACH|BASE|BITS|BMASK|CLEAR.(EVENT)|CLOSE|CLOSEI|CONFIG|CYCLE.(END)|DECEL.(100)|$DECODE|DECOMPOSE|DEFBELT|DEF.(DIO)|DEFINED|DELAY|DEPART|DEPARTS|DETACH|DEVICE|DEVICES|DISABLE|DISTANCE|DOS|DRIVE|DURATION|DX|DY|DZ|ENABLE|ENCODE|$ENCODE|ERROR|$ERROR|EXECUTE|EXIT|FCLOSE|FCMND|FDELETE|FEMPTY|FINE|FOPEN|FOPEN_|FRAME|FREE|FSEEK|FSET|GAIN.(SET)|GETC|GETEVENT|GET.(EVENT)|ID|$ID|IDENTICAL|IGNORE|INRANGE|INSTALL|INT.(EVENT)|INVERSE|IOGET_|$IOGETS|IOPUT_|IOSTAT|IOTAS|IPS|KEYMODE|KILL|LAST|LATCH|LATCHED|LEN|LOCK|MCS|MID|MOVE|MOVES|MOVEF|MOVESF|MOVET|MOVEST|NETWORK|NORMAL|OUTSIDE|PACK|PARAMETER|PAYLOAD|PENDANT|#PLATCH|POS|PROMPT|REACT|REACTE|REACTI|READ|RELEASE|ROBOT(.OPR)|ROBOT|RUNSIG|RX|RY|RZ|SCALE(.ACCEL(.ROT))|SCALE|SEE|SELECT|SET(.EVENT)|SET|SETDEVICE|SHIFT|SIG(.INS)|SIG|SIGNAL|SOLVE.(ANGLES|FLAGS|TRANS)|SPEED|SPIN|STATE|STATUS|STRDIF|SWITCH|$SYMBOL|SYMBOL.(PTR)|TAS|TASK|TIME|$TIME|TIMER|TOOL|TRANS|TRANSB|$TRANSB|$TRUNCATE|TYPE|UNIDIRECT|$UNPACK|VAL|VALUE|WAIT(.EVENT)|WAIT|WRITE)\\b",
+			"name": "support.function.vplus"
+		},
+		{
+			"match": "\\b(ASC|ATAN2|BCD|$CHR|COS|DBLB|$DBLB|DCB|FLTB|$FLTB|FRACT|INT|INTB|$INTB|LNGB|$LNGB|MAX|MIN|PI|RANDOM|SIGN|SIN|SQR|SQRT)\\b",
+			"name": "support.function.vplus"
+		},
+		{
+			"match": "\\b(ALWAYS|CALL|CALLP|CALLS|COURSE|COM|CP|MC|MMPS|#PPOINT)\\b",
+			"name": "support.function.vplus"
+		}
+		]
+	}
+}
+}
