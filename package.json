@@ -1,7 +1,13 @@
 {
 	"name": "language-Vplus",
-	"version": "0.0.1",
-	"description": "Syntax highlighting for Adept V+ robotic programming language",
+	"version": "0.0.2",
+	"description": "Syntax highlighting for Adept V+ robot programming language",
+	"keywords": [
+		"syntax",
+		"theme"
+	],
+	"repository": "https://github.com/drm0hr/language-Vplus",
+	"license": "MIT",
 	"engines": {
 		"atom": "*",
 		"node": "*"
