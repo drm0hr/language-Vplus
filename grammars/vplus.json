@@ -17,8 +17,6 @@
   }, {
     "include": "#function-declaration"
   }, {
-    "include": "#function-declaration-end"
-  }, {
     "include": "#language-support"
   }],
   "repository": {
@@ -104,50 +102,48 @@
     },
     "function-declaration": {
       "name": "meta.function.vplus",
-      "begin": "\\s*(\\.PROGRAM)\\s+([a-zA-Z_\\.][A-Za-z0-9_\\.]*)\\s*(\\()",
-      "beginCaptures": {
-        "1": {
-          "name": "storage.type.function.vplus"
-        },
-        "2": {
-          "name": "entity.name.function.vplus"
-        },
-        "3": {
-          "name": "punctuation.definition.parameters.begin.vplus"
-        },
-        "4": {
-          "name": "meta.parameters.vplus"
-        }
-      },
       "patterns": [{
-        "include": "#variable-modifiers"
-      }],
-      "end": "(\\))?\\s*",
-      "endCaptures": {
-        "1": {
-          "name": "punctuation.definition.parameters.end.vplus"
+        "match": "\\s*(\\.PROGRAM)\\s+([A-Za-z_\\.][A-Za-z0-9_\\.]*)\\s*(\\()([^)]*)(\\))\\s*",
+        "captures": {
+          "1": {
+            "name": "storage.type.function.vplus"
+          },
+          "2": {
+            "name": "entity.name.function.vplus"
+          },
+          "3": {
+            "name": "punctuation.definition.parameters.begin.vplus"
+          },
+          "4": {
+            "name": "variable.parameter.function.vplus"
+          },
+          "5": {
+            "name": "punctuation.definition.parameters.end.vplus"
+          }
         }
-      }
-    },
-    "function-declaration-end": {
-      "match": "\\s*(\\.END)\\s",
-			"name": "keyword.control.end-definition.vbnet"
+      }, {
+        "match": "(?i:\\s*(\\.END)\\b\\s*)",
+        "name": "storage.type.function.vplus"
+      }]
     },
     "language-support": {
       "patterns": [{
         "match": "\\b(?<!\\.)(?i)(ABORT|ABOVE|ALIGN|ALTOFF|AUTO\\.POWER\\.OFF|BELT\\.MODE|BELT|BELOW|BRAKE|BREAK|BSTATUS|CALIBRATE|CPOFF|CPON|DEFAULT|DEST|DRY\\.RUN|ESTOP|FLIP|HALT|HAND\\.TIME|HAND|HERE|HOUR\\.METER|INTERACTIVE|LEFTY|MCP\\.MESSAGE|MCS\\.MESSAGE|MESSAGES|MONITORS|MULTIPLE|NOFLIP|NONULL|NOOVERLAP|NOT\\.CALIBRATED|NULL|OPEN|OPENI|OVERLAP|PAUSE|POWER|PRIORITY|READY|RELAX|RELAXI|RESET|RETURN|RETURNE|RIGHTY|SET\\.SPEED|SINGLE|STOP|TERMINAL|TPS|TRACE|UPPER)(?-i)\\s",
         "name": "support.function.vplus"
       }, {
-        "match": "\\b(?<!\\.)(?i)(ACCEL|AIO\\.(IN|INS|OUT)|ALTER|ALTON|APPRO|APPROS|ATTACH|BASE|BITS|BMASK|CLEAR\\.EVENT|CLOSE|CLOSEI|CONFIG|CYCLE\\.END|DECEL\\.100|DECOMPOSE|DEFBELT|DEF\\.DIO|DEFINED|DELAY|DEPART|DEPARTS|DETACH|DEVICE|DEVICES|DISABLE|DISTANCE|DOS|DRIVE|DURATION|DX|DY|DZ|ENABLE|ENCODE|ERROR|EXECUTE|EXIT|FCLOSE|FCMND|FDELETE|FEMPTY|FINE|FOPEN|FOPEN_|FRAME|FREE|FSEEK|FSET|GAIN\\.SET|GETC|GETEVENT|GET\\.EVENT|ID|IDENTICAL|IGNORE|INRANGE|INSTALL|INT\\.EVENT|INVERSE|IOGET_|IOPUT_|IOSTAT|IOTAS|IPS|KEYMODE|KILL|LAST|LATCH|LATCHED|LEN|LOCK|MCS|MID|MOVE|MOVES|MOVEF|MOVESF|MOVET|MOVEST|NETWORK|NORMAL|OUTSIDE|PACK|PARAMETER|PAYLOAD|PENDANT|POS|PROMPT|REACT|REACTE|REACTI|READ|RELEASE|ROBOT\\.OPR|ROBOT|RUNSIG|RX|RY|RZ|SCALE\\.ACCEL\\.ROT|SCALE|SEE|SELECT|SET\\.EVENT|SET|SETDEVICE|SHIFT|SIG\\.INS|SIG|SIGNAL|SOLVE\\.(ANGLES|FLAGS|TRANS)|SPEED|SPIN|STATE|STATUS|STRDIF|SWITCH|SYMBOL\\.PTR|TAS|TASK|TIME|TIMER|TOOL|TRANS|TRANSB|TYPE|UNIDIRECT|VAL|VALUE|WAIT\\.EVENT|WAIT|WRITE)(?-i)\\b",
+        "match": "\\b(?<!\\.)(?i)(ACCEL|AIO\\.(IN|INS|OUT)|ALTER|ALTON|APPRO|APPROS|ATTACH|BASE|BITS|BMASK|CLEAR\\.EVENT|CLOSE|CLOSEI|CONFIG|CYCLE\\.END|DECEL\\.100|DECOMPOSE|DEFBELT|DEF\\.DIO|DEFINED|DELAY|DEPART|DEPARTS|DETACH|DEVICE|DEVICES|DISABLE|DISTANCE|DO\\.COMMAND|DOS|DRIVE|DURATION|DX|DY|DZ|ENABLE|ENCODE|ERROR|EXECUTE|EXIT|FCLOSE|FCMND|FDELETE|FEMPTY|FINE|FOPEN|FOPEN_|FRAME|FREE|FSEEK|FSET|GAIN\\.SET|GETC|GETEVENT|GET\\.EVENT|ID|IDENTICAL|IGNORE|INRANGE|INSTALL|INT\\.EVENT|INVERSE|IOGET_|IOPUT_|IOSTAT|IOTAS|IPS|KEYMODE|KILL|LAST|LATCH|LATCHED|LEN|LOCK|MCS|MID|MOVE|MOVES|MOVEF|MOVESF|MOVET|MOVEST|NETWORK|NORMAL|OUTSIDE|PACK|PARAMETER|PAYLOAD|PENDANT|POS|PROMPT|REACT|REACTE|REACTI|READ|RELEASE|ROBOT\\.OPR|ROBOT|RUNSIG|RX|RY|RZ|SCALE\\.ACCEL\\.ROT|SCALE|SEE|SELECT|SET\\.EVENT|SET|SETDEVICE|SHIFT|SIG\\.INS|SIG|SIGNAL|SOLVE\\.(ANGLES|FLAGS|TRANS)|SPEED|SPIN|STATE|STATUS|STRDIF|SWITCH|SYMBOL\\.PTR|TAS|TASK|TIME|TIMER|TOOL|TRANS|TRANSB|TYPE|UNIDIRECT|VAL|VALUE|WAIT\\.EVENT|WAIT|WRITE)(?-i)\\b",
         "name": "support.function.vplus"
       }, {
-        "match": "\\b(?<!\\.)(?i)(ASC|ATAN2|BCD|COS|DBLB|DCB|FLTB|FRACT|INT|INTB|LNGB|MAX|MIN|PI|RANDOM|SIGN|SIN|SQR|SQRT)(?-i)\\s",
+        "match": "\\b(?<!\\.)(?i)(ASC|ATAN2|BCD|COS|DBLB|DCB|FLTB|FRACT|INT|INTB|LNGB|MAX|MIN|PI|RANDOM|SIGN|SIN|SQR|SQRT)(?-i)\\b",
         "name": "support.function.vplus"
       }, {
         "match": "\\b(?<!\\.)(?i)(ALWAYS|CALL|CALLP|CALLS|COURSE|COM|CP|MC|MMPS)(?-i)\\s",
         "name": "support.function.vplus"
       }, {
         "match": "\\b(?<!\\.)(?i)($CHR|$DBLB|$DECODE|$ENCODE|$ERROR|$FLTB|$ID|$INTB|$IOGETS|$LNGB|$SYMBOL|$TIME|$TRANSB|$TRUNCATE|$UNPACK)(?-i)\\s",
+        "name": "support.function.vplus"
+      }, {
+        "match": "\\#PDEST\\s",
         "name": "support.function.vplus"
       }, {
         "match": "\\b(?<!\\.)(?i)(#PDEST|#PLATCH|#PPOINT|#SETPOINT)(?-i)\\s",
