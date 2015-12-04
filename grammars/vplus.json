@@ -15,7 +15,7 @@
   }, {
     "include": "#variable-modifiers"
   }, {
-    "include": "#function-declaration"
+    "include": "#program-sections"
   }, {
     "include": "#language-support"
   }],
@@ -100,8 +100,7 @@
         "name": "storage.modifier.vplus"
       }]
     },
-    "function-declaration": {
-      "name": "meta.function.vplus",
+    "program-sections": {
       "patterns": [{
         "match": "\\s*(\\.PROGRAM)\\s+([A-Za-z_\\.][A-Za-z0-9_\\.]*)\\s*(\\()([^)]*)(\\))\\s*",
         "captures": {
@@ -122,8 +121,20 @@
           }
         }
       }, {
+        "match": "(?i:\\s*(\\.LOCATIONS)\\b\\s*)",
+        "name": "storage.type.variable.vplus"
+      }, {
+        "match": "(?i:\\s*(\\.REALS)\\b\\s*)",
+        "name": "storage.type.variable.vplus"
+      }, {
+        "match": "(?i:\\s*(\\.DOUBLES)\\b\\s*)",
+        "name": "storage.type.variable.vplus"
+      }, {
+        "match": "(?i:\\s*(\\.STRINGS)\\b\\s*)",
+        "name": "storage.type.variable.vplus"
+      }, {
         "match": "(?i:\\s*(\\.END)\\b\\s*)",
-        "name": "storage.type.function.vplus"
+        "name": "storage.type.end.vplus"
       }]
     },
     "language-support": {
@@ -140,14 +151,11 @@
         "match": "\\b(?<!\\.)(?i)(ALWAYS|CALL|CALLP|CALLS|COURSE|COM|CP|MC|MMPS)(?-i)\\s",
         "name": "support.function.vplus"
       }, {
-        "match": "\\b(?<!\\.)(?i)($CHR|$DBLB|$DECODE|$ENCODE|$ERROR|$FLTB|$ID|$INTB|$IOGETS|$LNGB|$SYMBOL|$TIME|$TRANSB|$TRUNCATE|$UNPACK)(?-i)\\s",
-        "name": "support.function.vplus"
+        "match": "\\$(?i)(CHR|DBLB|DECODE|ENCODE|ERROR|FLTB|ID|INTB|IOGETS|LNGB|SYMBOL|TIME|TRANSB|TRUNCATE|UNPACK)(?-i)\\s",
+        "name": "support.function.string.vplus"
       }, {
-        "match": "\\#PDEST\\s",
-        "name": "support.function.vplus"
-      }, {
-        "match": "\\b(?<!\\.)(?i)(#PDEST|#PLATCH|#PPOINT|#SETPOINT)(?-i)\\s",
-        "name": "support.function.vplus"
+        "match": "\\#(?i)(PDEST|PLATCH|PPOINT|SETPOINT)(?-i)\\s",
+        "name": "support.function.precision-point.vplus"
       }]
     }
   }
