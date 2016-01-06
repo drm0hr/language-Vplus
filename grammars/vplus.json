@@ -138,6 +138,8 @@
       }]
     },
     "language-support": {
+    },
+    "language-support": {
       "patterns": [{
         "match": "\\b(?<!\\.)(?i)(ABORT|ABOVE|ALIGN|ALTOFF|AUTO\\.POWER\\.OFF|BELT\\.MODE|BELT|BELOW|BRAKE|BREAK|BSTATUS|CALIBRATE|CPOFF|CPON|DEFAULT|DEST|DRY\\.RUN|ESTOP|FLIP|HALT|HAND\\.TIME|HAND|HERE|HOUR\\.METER|INTERACTIVE|LEFTY|MCP\\.MESSAGE|MCS\\.MESSAGE|MESSAGES|MONITORS|MULTIPLE|NOFLIP|NONULL|NOOVERLAP|NOT\\.CALIBRATED|NULL|OPEN|OPENI|OVERLAP|PAUSE|POWER|PRIORITY|READY|RELAX|RELAXI|RESET|RETURN|RETURNE|RIGHTY|SET\\.SPEED|SINGLE|STOP|TERMINAL|TPS|TRACE|UPPER)(?-i)\\s",
         "name": "support.function.vplus"
@@ -151,10 +153,10 @@
         "match": "\\b(?<!\\.)(?i)(ALWAYS|CALL|CALLP|CALLS|COURSE|COM|CP|MC|MMPS)(?-i)\\s",
         "name": "support.function.vplus"
       }, {
-        "match": "\\$(?i)(CHR|DBLB|DECODE|ENCODE|ERROR|FLTB|ID|INTB|IOGETS|LNGB|SYMBOL|TIME|TRANSB|TRUNCATE|UNPACK)(?-i)\\s",
+        "match": "\\$(?i)(CHR|DBLB|DECODE|ENCODE|ERROR|FLTB|ID|INTB|IOGETS|LNGB|SYMBOL|TIME|TRANSB|TRUNCATE|UNPACK)(?-i)\\b",
         "name": "support.function.string.vplus"
       }, {
-        "match": "\\#(?i)(PDEST|PLATCH|PPOINT|SETPOINT)(?-i)\\s",
+        "match": "\\#(?i)(PDEST|PLATCH|PPOINT|SETPOINT)(?-i)\\b",
         "name": "support.function.precision-point.vplus"
       }]
     }
